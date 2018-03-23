@@ -7,8 +7,9 @@ addons:
     packages:
     - docker-ce
 env:
-  - secure: YsCCi2B+vyS6lDOUICzeSO4H9kPIDFiaa67qgAJHpg9YKrXOMX1mqo6hJm2UA7hCsCGG41qcyrnz6EpGnEtIXpfEQZqUqsQpW9PkVsj9ZPsBdhHIcwmhTu378TeW20vZJ5N8IoPmr+z3bZBI1PI5aoPxn4wSqsbu0lyp4FSBeREHuFv0wWBh/GVzSX3vz1zE2B+o8T09X00H7hdw5CcSxm1sJkome9ZyuFfWtTsFWPCHU22+mI6QnD5F5vyHBi09tc7AnkLbd/O+pyRzdbizRIPkeLyTAru+HtbErnZOtbPUl2IXLKdyuf1c5Ix/NrpyF5i7Yj7E33BOhvkII6E/tTh785t5zp+nkG4izxhN5CP9wCdKJXChjpMujzxkIZ71aCePmcW/sb5S50mLxotjYu4m5PYYAYLpeY4s9S+aCp+2eXkH5P36zT/REIKb6d3YD0AWzkPl2rzbG/yTQxeNPJk9/2olryb8yWR4JpV9CEQo1EDoBFOPJfAHIr5YB6Ep68F772EGQxqtmL8K87YqZsyBeb0I9v/ePr0yg9P4JbtF2I+w9HUF9pCOCGrhxuHdgcZN49TpWXDZD4y6/QBJ6yoCrqqn8l/UFs1g6xybp6ssfexDqjIDJeE+zJGHC8fYY4DH7GvCQ4kAvi4J26l8mWyqkXdVBNwZsdaTVqZEfYM=
-  - FPM_VERSION=1.9.3
+  global:
+    - secure: YsCCi2B+vyS6lDOUICzeSO4H9kPIDFiaa67qgAJHpg9YKrXOMX1mqo6hJm2UA7hCsCGG41qcyrnz6EpGnEtIXpfEQZqUqsQpW9PkVsj9ZPsBdhHIcwmhTu378TeW20vZJ5N8IoPmr+z3bZBI1PI5aoPxn4wSqsbu0lyp4FSBeREHuFv0wWBh/GVzSX3vz1zE2B+o8T09X00H7hdw5CcSxm1sJkome9ZyuFfWtTsFWPCHU22+mI6QnD5F5vyHBi09tc7AnkLbd/O+pyRzdbizRIPkeLyTAru+HtbErnZOtbPUl2IXLKdyuf1c5Ix/NrpyF5i7Yj7E33BOhvkII6E/tTh785t5zp+nkG4izxhN5CP9wCdKJXChjpMujzxkIZ71aCePmcW/sb5S50mLxotjYu4m5PYYAYLpeY4s9S+aCp+2eXkH5P36zT/REIKb6d3YD0AWzkPl2rzbG/yTQxeNPJk9/2olryb8yWR4JpV9CEQo1EDoBFOPJfAHIr5YB6Ep68F772EGQxqtmL8K87YqZsyBeb0I9v/ePr0yg9P4JbtF2I+w9HUF9pCOCGrhxuHdgcZN49TpWXDZD4y6/QBJ6yoCrqqn8l/UFs1g6xybp6ssfexDqjIDJeE+zJGHC8fYY4DH7GvCQ4kAvi4J26l8mWyqkXdVBNwZsdaTVqZEfYM=
+    - FPM_VERSION=1.9.3
 
 install: true
 
@@ -17,7 +18,7 @@ before_script:
 - docker pull debian:stretch-slim
 
 script:
-- docker build --arg-build FPM_VERSION=${FPM_VERSION} -t fg2it/fpm:${FPM_VERSION} .
+- docker build --build-arg FPM_VERSION=${FPM_VERSION} -t fg2it/fpm:${FPM_VERSION} .
 
 deploy:
 - provider: script
