@@ -3,4 +3,4 @@
 [ci-svg]: https://travis-ci.org/fg2it/fpm-in-docker.svg?branch=master
 [ci-url]: https://travis-ci.org/fg2it/fpm-in-docker
 
-Base image (debian:stretch) with fpm
+Base image (debian:stretch) with fpm for [docker](https://hub.docker.com/r/fg2it/fpm/)
