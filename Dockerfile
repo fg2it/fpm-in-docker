@@ -24,6 +24,10 @@ RUN apt-get update     && \
         binutils          \
         ruby
 COPY --from=builder /tmp/deb/*.deb /tmp/
-RUN cd /tmp/ && dpkg -i *.deb
+RUN cd /tmp/       && \
+    dpkg -i *.deb  && \
+    rm -rf  *.deb  && \
+    rm -rf /var/lib/apt/lists/*
+
 CMD ["/bin/bash"]
 
