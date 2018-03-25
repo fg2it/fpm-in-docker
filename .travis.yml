@@ -10,7 +10,7 @@ env:
   global:
   - secure: sDnXh0A4BgfUq6nuduhaJgvHjOtn8GMsngQ0pQ0OkU9x4DMbskLqJGngwQQn+jRo4G8bJT36Zf/krP7HeJ6qv1ldbSDggF08JWGrnKeU9HRiulrmdirs5zGdogKJj+XuAfS1AEEByKkbTkQlYvsqPY8EiOKRjNqwSJ9czKYPaZ5Mjv5muj+lDVvhX4wM9Gu/wRARzH3FQA5q6iMZpdqIylwpMe8raBw53mzvKr6SzcLGX+yGFccKuAwmDKtll8Rcbl7/qxixrBqptBIpnruIk7Na/WO1jNhTYFyNLtzmAdPk80S6W28e1KSCRw/FgNc1fzCJ4DXTNDN7FhiuFrUluIGJtH2x1wZxl9dqlrODgSl6d3dKU1p6j+qgLsvuGaU7NabfkwJyYIRSnznjpMPoqRvX6KqowJGPA4GtIe3cPEhg7pRtD8IOBJabcQ7IuuVIM0xzT8GKtCsz+KyRgJVSHOhTGcAbD/8GXzvn06/8FvkuJe0SppKHfPOrTrjgkqSldri407ZZ+U6ihCkpYuY+YXdO2BIwh22QV+4uRIlI3vlGW5p7sHfamwkiPywpCBXwcaRV61MYU3gaxw3vr/JVkHP97Rf8J/It34Zc6MQKZo6wLpErLc4nvdiv+74rW7HSbMcTHFsHFb1INxDHrOAcIHINlJm2eRj2Vu/Z7gTPwwQ=
   - FPM_VERSION=1.9.3
-  - ITERATION="-1"
+  - ITERATION="-2"
 
 install: true
 
@@ -19,7 +19,7 @@ before_script:
 - docker pull debian:stretch-slim
 
 script:
-- docker build --build-arg FPM_VERSION=${FPM_VERSION} -t fg2it/fpm:${FPM_VERSION}${ITERATION} .
+- build.sh
 - docker images
 
 deploy:
